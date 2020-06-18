@@ -54,6 +54,13 @@ describe('LookupFormComponent', () => {
     it('should contain text that reads "Search"', () => {
       expect(searchButtonElement.textContent).toBeTruthy();
     });
+
+    it('should trigger the searchClicked when button is clicked', () => {
+      spyOn(component, 'searchClicked');
+      searchButtonElement.click();
+
+      expect(component.searchClicked).toHaveBeenCalled();
+    });
   });
 
   function enterText(element: HTMLInputElement, text: string) {

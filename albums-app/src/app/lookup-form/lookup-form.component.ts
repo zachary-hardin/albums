@@ -17,4 +17,7 @@ export class LookupFormComponent implements OnInit {
       albumId: new FormControl('')
     });
   }
+
+  searchClicked() {
+  }
 }
