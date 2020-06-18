@@ -9,7 +9,7 @@ export class PhotosService {
   constructor(private http: HttpClient) {
   }
 
-  fetchPhotosBy(): Observable<any> {
-    return this.http.get<any>(`https://jsonplaceholder.typicode.com/photos?albumId=3`);
+  fetchPhotosBy(albumId: string): Observable<any> {
+    return this.http.get<any>(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`);
   }
 }

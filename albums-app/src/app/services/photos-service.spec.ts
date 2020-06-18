@@ -20,10 +20,10 @@ describe('PhotosService', () => {
     photoService = TestBed.get(PhotosService);
   });
 
-  it('should perform GET on the correct endpoint', () => {
-    photoService.fetchPhotosBy().subscribe();
+  it('should perform GET on endpoint with given albumId', () => {
+    photoService.fetchPhotosBy('5').subscribe();
 
-    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/photos?albumId=3');
+    const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/photos?albumId=5');
     expect(req.request.method).toEqual('GET');
     req.flush({});
   });
