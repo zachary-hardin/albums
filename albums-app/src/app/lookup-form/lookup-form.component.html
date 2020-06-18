@@ -12,3 +12,7 @@
     (click)="searchClicked()"
   >Search</button>
 </form>
+
+<div *ngIf="!isPhotosEmpty()">
+  <p id="photoId">{{albums[0].id}}</p>
+</div>

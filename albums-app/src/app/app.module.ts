@@ -6,6 +6,7 @@ import {AppComponent} from './app.component';
 import {AlbumLookupComponent} from './album-lookup/album-lookup.component';
 import {LookupFormComponent} from './lookup-form/lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -13,12 +14,14 @@ import {ReactiveFormsModule} from '@angular/forms';
     AlbumLookupComponent,
     LookupFormComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ReactiveFormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
