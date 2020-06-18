@@ -2,7 +2,7 @@ import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 
 import {LookupFormComponent} from './lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {PhotosService} from '../services/photos-service';
+import {AlbumService} from '../services/album.service';
 import {of} from 'rxjs';
 import {Album} from '../models/Album';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -73,20 +73,20 @@ describe('LookupFormComponent', () => {
       expect(fixture.nativeElement.querySelector('#photoId')).toBeFalsy();
     });
 
-    it('should show albums when photos is not empty', inject([PhotosService], (photosService: PhotosService) => {
+    it('should show albums when photos is not empty', inject([AlbumService], (albumService: AlbumService) => {
       const album = new Album();
       album.id = 93;
-      spyOn(photosService, 'fetchPhotosBy').and.returnValue(of([album]));
+      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
       component.searchClicked();
       fixture.detectChanges();
 
       expect(fixture.nativeElement.querySelector('#photoId')).toBeTruthy();
     }));
 
-    it('should render the id when searchClicked is called', inject([PhotosService], (photosService: PhotosService) => {
+    it('should render the id when searchClicked is called', inject([AlbumService], (albumService: AlbumService) => {
       const album = new Album();
       album.id = 93;
-      spyOn(photosService, 'fetchPhotosBy').and.returnValue(of([album]));
+      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
 
       component.form.patchValue({albumId: '12'});
       component.searchClicked();

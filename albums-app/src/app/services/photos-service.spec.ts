@@ -1,9 +1,9 @@
 import {async, TestBed} from '@angular/core/testing';
-import {PhotosService} from './photos-service';
+import {AlbumService} from './album.service';
 import {HttpClientTestingModule, HttpTestingController} from '@angular/common/http/testing';
 
-describe('PhotosService', () => {
-  let photoService: PhotosService;
+describe('AlbumService', () => {
+  let albumService: AlbumService;
   let httpTestingController: HttpTestingController;
 
   beforeEach(async(() => {
@@ -17,11 +17,11 @@ describe('PhotosService', () => {
   }));
 
   beforeEach(() => {
-    photoService = TestBed.get(PhotosService);
+    albumService = TestBed.get(AlbumService);
   });
 
   it('should perform GET on endpoint with given albumId', () => {
-    photoService.fetchPhotosBy('5').subscribe();
+    albumService.fetchAlbumBy('5').subscribe();
 
     const req = httpTestingController.expectOne('https://jsonplaceholder.typicode.com/photos?albumId=5');
     expect(req.request.method).toEqual('GET');

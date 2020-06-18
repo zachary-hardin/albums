@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
-import {PhotosService} from '../services/photos-service';
+import {AlbumService} from '../services/album.service';
 import {take} from 'rxjs/operators';
 import {Album} from '../models/Album';
 
@@ -14,7 +14,7 @@ export class LookupFormComponent implements OnInit {
   albums: Album[] = [];
 
 
-  constructor(private photoService: PhotosService) {
+  constructor(private photoService: AlbumService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class LookupFormComponent implements OnInit {
 
   searchClicked() {
     const albumId = this.form.get('albumId').value;
-    this.photoService.fetchPhotosBy(albumId).pipe(take(1)).subscribe(responseData => {
+    this.photoService.fetchAlbumBy(albumId).pipe(take(1)).subscribe(responseData => {
       this.albums = responseData;
     });
   }
