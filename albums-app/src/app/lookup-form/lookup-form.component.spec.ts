@@ -30,6 +30,11 @@ describe('LookupFormComponent', () => {
       expect(fixture.nativeElement.querySelector('input#albumInput')).toBeTruthy();
     });
 
+    it('should set placeholder text to "Enter a number 1 - 100"', () => {
+      const placeholderText = 'Enter a number 1 - 100';
+      expect(fixture.nativeElement.querySelector('input#albumInput').placeholder).toEqual(placeholderText);
+    });
+
     it('should update the form when given a value', () => {
       const input = fixture.nativeElement.querySelector('input#albumInput');
       enterText(input, '1');
