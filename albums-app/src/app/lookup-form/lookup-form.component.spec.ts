@@ -7,6 +7,7 @@ describe('LookupFormComponent', () => {
   let component: LookupFormComponent;
   let fixture: ComponentFixture<LookupFormComponent>;
   let albumInputElement: HTMLInputElement;
+  let searchButtonElement: HTMLInputElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,6 +23,7 @@ describe('LookupFormComponent', () => {
     fixture.detectChanges();
 
     albumInputElement = fixture.nativeElement.querySelector('input#albumInput');
+    searchButtonElement = fixture.nativeElement.querySelector('button#searchButton');
   });
 
   it('should create', () => {
@@ -41,6 +43,16 @@ describe('LookupFormComponent', () => {
     it('should update the form when given a value', () => {
       enterText(albumInputElement, '1');
       expect(component.form.get('albumId').value).toEqual('1');
+    });
+  });
+
+  describe('Button', () => {
+    it('should render a button element', () => {
+      expect(searchButtonElement).toBeTruthy();
+    });
+
+    it('should contain text that reads "Search"', () => {
+      expect(searchButtonElement.textContent).toBeTruthy();
     });
   });
 
