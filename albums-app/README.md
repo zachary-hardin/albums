@@ -1,27 +1,25 @@
-# AlbumsApp
+# AlbumsApp | Zachary Hardin
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+Welcome to the AlbumsApp where you can search for different photo albums! Start simply by entering a number 1 - 100 and clicking the search button. Enjoy!
 
-## Development server
+## Tech Stacks
+* [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
+* [Cypress](https://www.cypress.io/) version 4.8.0
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting started
+Run `npm i` to install all the dependencies. 
 
-## Code scaffolding
+### Start Server
+* Run `ng serve` to start the server and navigate to  `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Running Tests
 
-## Build
+#### Unit Tests
+* Run `ng test` to execute the unit tests.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#### Integration Tests
+* Run `cypress run` to execute integration tests.
 
-## Running unit tests
+## Next Steps
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This was a really fun kata! The next steps would include making the albums clickable for more info. Upon clicking them, the app could display a model with the full cover image or navigate the user to a new page where they can learn more about the album. This would include writing more cypress level tests to verify the user is navigated to the appropriate screens.
