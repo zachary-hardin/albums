@@ -22,6 +22,7 @@ describe('AlbumContentComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(AlbumContentComponent);
     component = fixture.componentInstance;
+    component.albums = [album];
     fixture.detectChanges();
   });
 
@@ -29,24 +30,15 @@ describe('AlbumContentComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should populate the id', () => {
-    component.albums = [album];
-    fixture.detectChanges();
-
+  it('should populate the id by default', () => {
     expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('Album #1');
   });
 
-  it('should populate the title', () => {
-    component.albums = [album];
-    fixture.detectChanges();
-
+  it('should populate the title by default', () => {
     expect(fixture.nativeElement.querySelector('#title').textContent).toEqual('FizzBuzz');
   });
 
-  it('should populate the thumbnailUrl', () => {
-    component.albums = [album];
-    fixture.detectChanges();
-
+  it('should populate the thumbnailUrl by default', () => {
     expect(fixture.nativeElement.querySelector('#thumbnailUrl').src).toEqual('https://giphy.com/gifs/cat-funny-lol-CqVNwrLt9KEDK');
   });
 });
