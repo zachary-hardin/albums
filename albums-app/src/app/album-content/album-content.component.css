@@ -1,0 +1,17 @@
+img {
+  height: 200px;
+  width: 200px;
+}
+
+.padding {
+  padding: 1rem;
+}
+
+.margin {
+  margin: 0.75rem;
+}
+
+.card-width {
+  width: 200px
+}
+

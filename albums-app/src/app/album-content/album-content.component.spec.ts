@@ -33,7 +33,7 @@ describe('AlbumContentComponent', () => {
     component.albums = [album];
     fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('1');
+    expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('Album #1');
   });
 
   it('should populate the title', () => {

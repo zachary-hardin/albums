@@ -55,7 +55,7 @@ describe('AlbumLookupComponent', () => {
 
       fillOutForm();
 
-      expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('93');
+      expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('Album #93');
     }));
   });
 

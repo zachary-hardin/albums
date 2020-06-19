@@ -1,5 +1,11 @@
-<div *ngFor="let album of albums">
-  <p id="id">{{album.id}}</p>
-  <p id="title">{{album.title}}</p>
-  <img id="thumbnailUrl" src="{{album.thumbnailUrl}}" alt="Album Photo">
+<div class="row">
+  <div *ngFor="let album of albums">
+    <div class="card margin card-width">
+      <img id="thumbnailUrl" src="{{album.thumbnailUrl}}" alt="Album Photo">
+      <div class="padding">
+        <h5 id="id">Album #{{album.id}}</h5>
+        <p id="title" class="text-truncate">{{album.title}}</p>
+      </div>
+    </div>
+  </div>
 </div>
