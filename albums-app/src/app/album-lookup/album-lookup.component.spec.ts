@@ -19,7 +19,7 @@ describe('AlbumLookupComponent', () => {
       imports: [ReactiveFormsModule, HttpClientTestingModule],
       declarations: [AlbumLookupComponent, AlbumContentComponent, LookupFormComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -32,32 +32,23 @@ describe('AlbumLookupComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  describe('Album Content', () => {
-    it('should hide albums by default', () => {
-      expect(fixture.nativeElement.querySelector('#id')).toBeFalsy();
-    });
-
-    it('should show albums when photos is not empty', inject([AlbumService], (albumService: AlbumService) => {
-      const album = new Album();
-      album.id = 93;
-      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
-
-      fixture.nativeElement.querySelector('#searchButton').click();
-      fixture.detectChanges();
-
-      expect(fixture.nativeElement.querySelector('#id')).toBeTruthy();
-    }));
-
-    it('should render the id when searchClicked is called', inject([AlbumService], (albumService: AlbumService) => {
-      const album = new Album();
-      album.id = 93;
-      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
-
-      fillOutForm();
-
-      expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('Album #93');
-    }));
+  it('should hide albums by default', () => {
+    expect(fixture.nativeElement.querySelector('#id')).toBeFalsy();
   });
+
+  it('should render the element with the returned album content', inject([AlbumService], (albumService: AlbumService) => {
+    const album = new Album();
+    album.id = 93;
+    album.thumbnailUrl = 'some-url.com';
+    album.title = 'some title';
+    spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
+
+    fillOutForm();
+
+    expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('Album #93');
+    expect(fixture.nativeElement.querySelector('#thumbnailUrl').src).toContain('some-url.com');
+    expect(fixture.nativeElement.querySelector('#title').textContent).toEqual('some title');
+  }));
 
   function fillOutForm() {
     enterText(fixture.nativeElement.querySelector('#albumInput'), '12');
