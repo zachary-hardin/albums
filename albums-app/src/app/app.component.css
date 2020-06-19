@@ -1,3 +1,7 @@
 .top-margin {
   margin-top: 3rem;
 }
+
+.top-margin-sm {
+  margin-top: 1rem;
+}

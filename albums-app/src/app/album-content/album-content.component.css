@@ -15,3 +15,6 @@ img {
   width: 200px
 }
 
+.shadow {
+  box-shadow: 3px 4px 12px #d6d6d6;
+}
