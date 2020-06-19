@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AlbumService} from '../services/album.service';
 import {take} from 'rxjs/operators';
@@ -13,7 +13,6 @@ export class LookupFormComponent implements OnInit {
   form: FormGroup;
   albums: Album[] = [];
 
-
   constructor(private photoService: AlbumService) {
   }
 
@@ -21,10 +20,6 @@ export class LookupFormComponent implements OnInit {
     this.form = new FormGroup({
       albumId: new FormControl('')
     });
-  }
-
-  isPhotosEmpty() {
-    return this.albums.length === 0;
   }
 
   searchClicked() {

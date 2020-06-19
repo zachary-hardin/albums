@@ -1,6 +1,12 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
 
-import { AlbumLookupComponent } from './album-lookup.component';
+import {AlbumLookupComponent} from './album-lookup.component';
+import {AlbumService} from '../services/album.service';
+import {Album} from '../models/Album';
+import {of} from 'rxjs';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {LookupFormComponent} from '../lookup-form/lookup-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 describe('AlbumLookupComponent', () => {
   let component: AlbumLookupComponent;
@@ -8,7 +14,8 @@ describe('AlbumLookupComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AlbumLookupComponent ]
+      imports: [ReactiveFormsModule, HttpClientTestingModule],
+      declarations: [AlbumLookupComponent, LookupFormComponent]
     })
     .compileComponents();
   }));
@@ -22,4 +29,40 @@ describe('AlbumLookupComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe('Album Content', () => {
+    it('should hide albums by default', () => {
+      expect(fixture.nativeElement.querySelector('#id')).toBeFalsy();
+    });
+
+    it('should show albums when photos is not empty', inject([AlbumService], (albumService: AlbumService) => {
+      const album = new Album();
+      album.id = 93;
+      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
+
+      fixture.nativeElement.querySelector('#searchButton').click();
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.querySelector('#id')).toBeTruthy();
+    }));
+
+    it('should render the id when searchClicked is called', inject([AlbumService], (albumService: AlbumService) => {
+      const album = new Album();
+      album.id = 93;
+      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
+
+      enterText(fixture.nativeElement.querySelector('#albumInput'), '12');
+      fixture.nativeElement.querySelector('#searchButton').click();
+
+      fixture.detectChanges();
+
+      expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('93');
+    }));
+  });
+
+  function enterText(element: HTMLInputElement, text: string) {
+    element.value = text;
+    element.dispatchEvent(new Event('input'));
+    fixture.detectChanges();
+  }
 });

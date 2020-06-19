@@ -1,10 +1,7 @@
-import {async, ComponentFixture, inject, TestBed} from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {LookupFormComponent} from './lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {AlbumService} from '../services/album.service';
-import {of} from 'rxjs';
-import {Album} from '../models/Album';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('LookupFormComponent', () => {
@@ -65,35 +62,6 @@ describe('LookupFormComponent', () => {
 
       expect(component.searchClicked).toHaveBeenCalled();
     });
-  });
-
-  describe('Album Content', () => {
-    it('should hide albums when photos is empty', () => {
-      component.albums = [];
-      expect(fixture.nativeElement.querySelector('#photoId')).toBeFalsy();
-    });
-
-    it('should show albums when photos is not empty', inject([AlbumService], (albumService: AlbumService) => {
-      const album = new Album();
-      album.id = 93;
-      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
-      component.searchClicked();
-      fixture.detectChanges();
-
-      expect(fixture.nativeElement.querySelector('#photoId')).toBeTruthy();
-    }));
-
-    it('should render the id when searchClicked is called', inject([AlbumService], (albumService: AlbumService) => {
-      const album = new Album();
-      album.id = 93;
-      spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
-
-      component.form.patchValue({albumId: '12'});
-      component.searchClicked();
-      fixture.detectChanges();
-
-      expect(fixture.nativeElement.querySelector('#photoId').textContent).toEqual('93');
-    }));
   });
 
   function enterText(element: HTMLInputElement, text: string) {
