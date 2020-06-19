@@ -7,6 +7,7 @@ import {of} from 'rxjs';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {LookupFormComponent} from '../lookup-form/lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {enterText} from '../testing/Helper';
 
 describe('AlbumLookupComponent', () => {
   let component: AlbumLookupComponent;
@@ -51,18 +52,15 @@ describe('AlbumLookupComponent', () => {
       album.id = 93;
       spyOn(albumService, 'fetchAlbumBy').and.returnValue(of([album]));
 
-      enterText(fixture.nativeElement.querySelector('#albumInput'), '12');
-      fixture.nativeElement.querySelector('#searchButton').click();
-
-      fixture.detectChanges();
+      fillOutForm();
 
       expect(fixture.nativeElement.querySelector('#id').textContent).toEqual('93');
     }));
   });
 
-  function enterText(element: HTMLInputElement, text: string) {
-    element.value = text;
-    element.dispatchEvent(new Event('input'));
+  function fillOutForm() {
+    enterText(fixture.nativeElement.querySelector('#albumInput'), '12');
+    fixture.nativeElement.querySelector('#searchButton').click();
     fixture.detectChanges();
   }
 });

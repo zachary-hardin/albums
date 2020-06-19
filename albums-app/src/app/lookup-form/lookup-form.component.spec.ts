@@ -3,6 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {LookupFormComponent} from './lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {enterText} from '../testing/Helper';
 
 describe('LookupFormComponent', () => {
   let component: LookupFormComponent;
@@ -47,26 +48,20 @@ describe('LookupFormComponent', () => {
     });
   });
 
-  describe('Button', () => {
+  describe('Search Button', () => {
     it('should render a button element', () => {
       expect(searchButtonElement).toBeTruthy();
     });
 
     it('should contain text that reads "Search"', () => {
-      expect(searchButtonElement.textContent).toBeTruthy();
+      expect(searchButtonElement.textContent).toEqual('Search');
     });
 
-    it('should trigger the searchClicked when button is clicked', () => {
+    it('should call searchClicked when button is clicked', () => {
       spyOn(component, 'searchClicked');
       searchButtonElement.click();
 
       expect(component.searchClicked).toHaveBeenCalled();
     });
   });
-
-  function enterText(element: HTMLInputElement, text: string) {
-    element.value = text;
-    element.dispatchEvent(new Event('input'));
-    fixture.detectChanges();
-  }
 });
