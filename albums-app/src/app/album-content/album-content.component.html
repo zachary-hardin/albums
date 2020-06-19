@@ -1,7 +1,8 @@
 <div class="row">
   <div *ngFor="let album of albums">
-    <div class="card margin card-width shadow">
+    <div class="card-container card margin card-width shadow remove-border highlight-on-hover">
       <img id="thumbnailUrl" src="{{album.thumbnailUrl}}" alt="Album Photo">
+      <div class="overlay"></div>
       <div class="padding">
         <h5 id="id">Album #{{album.id}}</h5>
         <p id="title" class="text-truncate">{{album.title}}</p>
