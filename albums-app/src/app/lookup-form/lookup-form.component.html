@@ -1,14 +1,19 @@
 <form [formGroup]="form">
-  <input
-    id="albumInput"
-    formControlName="albumId"
-    class="form-control"
-    placeholder="Enter a number 1 - 100"
-    type="text">
+  <div class="input-group mb-3">
+    <input
+      id="albumInput"
+      formControlName="albumId"
+      class="form-control"
+      placeholder="Enter a number 1 - 100"
+      type="text">
 
-  <button
-    id="searchButton"
-    class="btn btn-primary"
-    (click)="searchClicked()"
-  >Search</button>
+    <div class="input-group-append">
+      <button
+        id="searchButton"
+        class="btn btn-primary"
+        (click)="searchClicked()"
+      >Search
+      </button>
+    </div>
+  </div>
 </form>
