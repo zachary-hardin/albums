@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {Album} from '../models/Album';
 import {LookupFormComponent} from '../lookup-form/lookup-form.component';
 
 @Component({
@@ -13,10 +12,6 @@ export class AlbumLookupComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  isAlbumsEmpty() {
-    return this.lookupFormComponent.albums.length === 0;
   }
 
   getAlbums() {

@@ -8,6 +8,7 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {LookupFormComponent} from '../lookup-form/lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {enterText} from '../testing/Helper';
+import {AlbumContentComponent} from '../album-content/album-content.component';
 
 describe('AlbumLookupComponent', () => {
   let component: AlbumLookupComponent;
@@ -16,7 +17,7 @@ describe('AlbumLookupComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ReactiveFormsModule, HttpClientTestingModule],
-      declarations: [AlbumLookupComponent, LookupFormComponent]
+      declarations: [AlbumLookupComponent, AlbumContentComponent, LookupFormComponent]
     })
     .compileComponents();
   }));

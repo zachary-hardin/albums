@@ -1,6 +1,2 @@
-<p>album-lookup works!</p>
 <app-lookup-form #albums></app-lookup-form>
-
-<div *ngIf="!isAlbumsEmpty()">
-  <p id="id">{{getAlbums()[0].id}}</p>
-</div>
+<app-album-content [albums]="getAlbums()"></app-album-content>

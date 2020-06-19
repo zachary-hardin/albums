@@ -7,12 +7,14 @@ import {AlbumLookupComponent} from './album-lookup/album-lookup.component';
 import {LookupFormComponent} from './lookup-form/lookup-form.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { AlbumContentComponent } from './album-content/album-content.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlbumLookupComponent,
-    LookupFormComponent
+    LookupFormComponent,
+    AlbumContentComponent
   ],
   imports: [
     BrowserModule,
