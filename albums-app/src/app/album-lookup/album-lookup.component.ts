@@ -3,8 +3,7 @@ import {LookupFormComponent} from '../lookup-form/lookup-form.component';
 
 @Component({
   selector: 'app-album-lookup',
-  templateUrl: './album-lookup.component.html',
-  styleUrls: ['./album-lookup.component.css']
+  templateUrl: './album-lookup.component.html'
 })
 export class AlbumLookupComponent implements OnInit {
   @ViewChild('albums', {static: true}) lookupFormComponent: LookupFormComponent;
