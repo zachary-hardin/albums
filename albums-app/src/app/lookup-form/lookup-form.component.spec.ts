@@ -33,10 +33,6 @@ describe('LookupFormComponent', () => {
   });
 
   describe('AlbumInput', () => {
-    it('should render an input element', () => {
-      expect(albumInputElement).toBeTruthy();
-    });
-
     it('should set placeholder text to "Enter a number 1 - 100"', () => {
       const placeholderText = 'Enter a number 1 - 100';
       expect(albumInputElement.placeholder).toEqual(placeholderText);
@@ -48,11 +44,7 @@ describe('LookupFormComponent', () => {
     });
   });
 
-  describe('Search Button', () => {
-    it('should render a button element', () => {
-      expect(searchButtonElement).toBeTruthy();
-    });
-
+  describe('SearchButton', () => {
     it('should contain text that reads "Search"', () => {
       expect(searchButtonElement.textContent).toEqual('Search');
     });
