@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {AlbumService} from '../services/album.service';
 import {take} from 'rxjs/operators';
