@@ -18,7 +18,8 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent,
         AlbumLookupComponent,
-        LookupFormComponent
+        LookupFormComponent,
+        AlbumContentComponent
       ],
     }).compileComponents();
   }));
