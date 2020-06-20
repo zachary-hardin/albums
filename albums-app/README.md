@@ -1,7 +1,8 @@
 # AlbumsApp | Zachary Hardin
 
 Welcome to the AlbumsApp where you can search for different photo albums! Start simply by entering a number 1 - 100 and clicking the search button. Enjoy!
-![](https://giphy.com/gifs/S9bjWIAWCwKGixSWSw)
+
+![App Preview](https://media.giphy.com/media/eJpeTLs0a3r5IH1Asj/giphy.gif)
 
 ## Tech Stacks
 * [Angular CLI](https://github.com/angular/angular-cli) version 9.1.8.
