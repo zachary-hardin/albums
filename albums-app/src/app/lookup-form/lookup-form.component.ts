@@ -6,8 +6,7 @@ import {Album} from '../models/Album';
 
 @Component({
   selector: 'app-lookup-form',
-  templateUrl: './lookup-form.component.html',
-  styleUrls: ['./lookup-form.component.css']
+  templateUrl: './lookup-form.component.html'
 })
 export class LookupFormComponent implements OnInit {
   form: FormGroup;
